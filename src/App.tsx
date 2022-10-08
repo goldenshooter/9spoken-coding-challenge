@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./App.css";
-import Homepage from "./components/home";
-import "antd/dist/antd.css";
+import React, { useState } from 'react'
+import './App.css'
+import Homepage from './components/home'
+import 'antd/dist/antd.css'
 function App() {
   // const [jsonData, setJsonData] = useState<any>();
   // const readFile = (e: any) => {
@@ -22,7 +22,7 @@ function App() {
   //   };
   // };
   return (
-    <div className="App">
+    <div className='App'>
       <Homepage />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -30,7 +30,7 @@ function App() {
         {jsonData}
       </header> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
