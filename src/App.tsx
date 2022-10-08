@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "./App.css";
+import Homepage from "./components/home";
+import "antd/dist/antd.css";
 function App() {
+  // const [jsonData, setJsonData] = useState<any>();
+  // const readFile = (e: any) => {
+  //   console.log("hello????????");
+  //   console.log(e.currentTarget.files);
+  //   let file = e.currentTarget.files[0];
+  //   let reader = new FileReader();
+
+  //   reader.readAsText(file);
+
+  //   reader.onload = function () {
+  //     setJsonData(reader.result);
+  //     console.log(reader.result);
+  //   };
+
+  //   reader.onerror = function () {
+  //     console.log(reader.error);
+  //   };
+  // };
   return (
     <div className="App">
-      <header className="App-header">
+      <Homepage />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code chanllege for 9spoken
-        </a>
-      </header>
+        <input onChange={readFile} type="file" />
+        {jsonData}
+      </header> */}
     </div>
   );
 }
