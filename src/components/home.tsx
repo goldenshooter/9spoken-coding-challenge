@@ -1,35 +1,11 @@
-import { UserOutlined } from '@ant-design/icons'
-import type { MenuProps } from 'antd'
-import { Button, Layout, Space } from 'antd'
+import { Layout, Space } from 'antd'
 import React, { useState } from 'react'
 import SourceDataTable from './sourceDataTable'
 import ResultTable from './resultTable'
-// import { CustomerType, SalesOpportunityType } from "./types";
-// import * as sourceData from "../data.json";
 
-const { Content, Sider } = Layout
-
-type MenuItem = Required<MenuProps>['items'][number]
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem
-}
-
-const items: MenuItem[] = [getItem('Customer', '1', <UserOutlined />)]
+const { Content } = Layout
 
 const Homepage: React.FC = () => {
-  // console.log(sourceData);
-  const [collapsed, setCollapsed] = useState(false)
   const [jsonData, setJsonData] = useState<any>()
 
   const readFile = (e: any) => {
@@ -41,20 +17,14 @@ const Homepage: React.FC = () => {
 
     reader.onload = function () {
       setJsonData(reader.result)
-      // console.log(reader.result);
+      console.log(reader.result)
     }
 
     reader.onerror = function () {
       console.log(reader.error)
     }
   }
-  const dataForDiaplay = {
-    revenue: '$519,169',
-    expenses: '$411,664',
-    grossProfitMargin: '22%',
-    netProfitMargin: '21%',
-    workingCapitalRatio: '95%',
-  }
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Content
@@ -64,7 +34,7 @@ const Homepage: React.FC = () => {
         <Space direction='vertical' size='middle'>
           <input onChange={readFile} type='file' />
           <SourceDataTable jsonData={jsonData} setJsonData={setJsonData} />
-          <ResultTable dataForDiaplay={dataForDiaplay} />
+          <ResultTable jsonData={jsonData} />
         </Space>
       </Content>
     </Layout>

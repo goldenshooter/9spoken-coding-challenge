@@ -2,6 +2,7 @@ import { Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
+import { DatalistType } from './types'
 
 interface SourceDataTableProps {
   jsonData: string | undefined
@@ -23,12 +24,8 @@ interface DataType {
 }
 
 function SourceDataTable({ jsonData, setJsonData }: SourceDataTableProps) {
-  console.log(typeof jsonData)
-  const convertedJson = JSON.parse(jsonData || '{}')
-  console.log(convertedJson)
-  // @ts-ignore
+  const convertedJson: DatalistType = JSON.parse(jsonData || '{}')
   const dataForDiaplay = convertedJson?.data || []
-  console.log(dataForDiaplay)
   const columns: ColumnsType<DataType> = [
     {
       title: 'Account category',

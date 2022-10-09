@@ -1,25 +1,36 @@
 import { Descriptions } from 'antd'
 import React from 'react'
+import { getResultFromSourceData } from './helperFunctions'
+import { DatalistType } from './types'
 
 interface ResultTableProps {
-  dataForDiaplay: object
+  jsonData: string | undefined
 }
 
-function ResultTable({ dataForDiaplay }: ResultTableProps) {
-  // console.log(dataForDiaplay);
+function ResultTable({ jsonData }: ResultTableProps) {
+  const convertedJson: DatalistType = JSON.parse(jsonData || '{}')
+  const dataList = convertedJson?.data || []
+  const {
+    revenue,
+    expenses,
+    grossProfitMargin,
+    netProfitMargin,
+    workingCapitalRatio,
+  } = getResultFromSourceData(dataList)
 
-  //   revenue: "$519,169",
-  //   expenses: "$411,664",
-  //   grossProfitMargin: "22%",
-  //   netProfitMargin: "21%",
-  //   workingCapitalRatio: "95%",
   return (
     <Descriptions title='Result' bordered>
-      <Descriptions.Item label='Revenue'>$510,169</Descriptions.Item>
-      <Descriptions.Item label='Expenses'>$411,664</Descriptions.Item>
-      <Descriptions.Item label='Gross Profit Margin'>22%</Descriptions.Item>
-      <Descriptions.Item label='Net Profit Margin'>21%</Descriptions.Item>
-      <Descriptions.Item label='Working Capital Ratio'> 95%</Descriptions.Item>
+      <Descriptions.Item label='Revenue'>{revenue}</Descriptions.Item>
+      <Descriptions.Item label='Expenses'>{expenses}</Descriptions.Item>
+      <Descriptions.Item label='Gross Profit Margin'>
+        {grossProfitMargin}
+      </Descriptions.Item>
+      <Descriptions.Item label='Net Profit Margin'>
+        {netProfitMargin}
+      </Descriptions.Item>
+      <Descriptions.Item label='Working Capital Ratio'>
+        {workingCapitalRatio}
+      </Descriptions.Item>
     </Descriptions>
   )
 }
