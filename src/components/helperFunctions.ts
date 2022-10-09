@@ -1,11 +1,11 @@
 import { SingleDataType } from './types'
 
 export function getResultFromSourceData(dataList: Array<SingleDataType>): {
-  revenue: number
-  expenses: number
-  grossProfitMargin: number
-  netProfitMargin: number
-  workingCapitalRatio: number
+  formattedRevenue: string
+  formattedExpenses: string
+  grossProfitMargin: string
+  netProfitMargin: string
+  workingCapitalRatio: string
 } {
   let revenue: number = 0,
     expenses: number = 0,
@@ -66,14 +66,34 @@ export function getResultFromSourceData(dataList: Array<SingleDataType>): {
       }
     })
   }
-  const grossProfitMargin = grossProfit / revenue
-  const netProfitMargin = (revenue - expenses) / revenue
+
+  const formattedRevenue = Intl.NumberFormat('en-NZ', {
+    style: 'currency',
+    currency: 'NZD',
+    maximumFractionDigits: 0,
+  }).format(revenue)
+  const formattedExpenses = Intl.NumberFormat('en-NZ', {
+    style: 'currency',
+    currency: 'NZD',
+    maximumFractionDigits: 0,
+  }).format(expenses)
+  const grossProfitMargin = Intl.NumberFormat('en-NZ', {
+    style: 'percent',
+    maximumFractionDigits: 0,
+  }).format(grossProfit / revenue)
+  const netProfitMargin = Intl.NumberFormat('en-NZ', {
+    style: 'percent',
+    maximumFractionDigits: 0,
+  }).format((revenue - expenses) / revenue)
   const assets = totalValueOfDebit - totalValueOfCredit
   const liabilities = liabilityCredit - liabilityDebit
-  const workingCapitalRatio = assets / liabilities
+  const workingCapitalRatio = Intl.NumberFormat('en-NZ', {
+    style: 'percent',
+    maximumFractionDigits: 0,
+  }).format(assets / liabilities)
   return {
-    revenue,
-    expenses,
+    formattedRevenue,
+    formattedExpenses,
     grossProfitMargin,
     netProfitMargin,
     workingCapitalRatio,

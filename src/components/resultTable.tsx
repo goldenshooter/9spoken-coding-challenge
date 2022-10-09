@@ -11,8 +11,8 @@ function ResultTable({ jsonData }: ResultTableProps) {
   const convertedJson: DatalistType = JSON.parse(jsonData || '{}')
   const dataList = convertedJson?.data || []
   const {
-    revenue,
-    expenses,
+    formattedRevenue,
+    formattedExpenses,
     grossProfitMargin,
     netProfitMargin,
     workingCapitalRatio,
@@ -20,8 +20,8 @@ function ResultTable({ jsonData }: ResultTableProps) {
 
   return (
     <Descriptions title='Result' bordered>
-      <Descriptions.Item label='Revenue'>{revenue}</Descriptions.Item>
-      <Descriptions.Item label='Expenses'>{expenses}</Descriptions.Item>
+      <Descriptions.Item label='Revenue'>{formattedRevenue}</Descriptions.Item>
+      <Descriptions.Item label='Expenses'>{formattedExpenses}</Descriptions.Item>
       <Descriptions.Item label='Gross Profit Margin'>
         {grossProfitMargin}
       </Descriptions.Item>

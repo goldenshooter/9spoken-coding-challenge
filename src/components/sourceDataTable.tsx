@@ -24,7 +24,12 @@ interface DataType {
 }
 
 function SourceDataTable({ jsonData, setJsonData }: SourceDataTableProps) {
-  const convertedJson: DatalistType = JSON.parse(jsonData || '{}')
+  let convertedJson: DatalistType
+  try {
+    convertedJson = JSON.parse(jsonData || '{}')
+  } catch (e) {
+    convertedJson = { data: [] }
+  }
   const dataForDiaplay = convertedJson?.data || []
   const columns: ColumnsType<DataType> = [
     {

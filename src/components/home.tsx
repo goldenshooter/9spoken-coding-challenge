@@ -14,7 +14,6 @@ const Homepage: React.FC = () => {
     let reader = new FileReader()
 
     reader.readAsText(file)
-
     reader.onload = function () {
       setJsonData(reader.result)
       console.log(reader.result)
@@ -32,7 +31,7 @@ const Homepage: React.FC = () => {
         style={{ margin: '16px', padding: 24 }}
       >
         <Space direction='vertical' size='middle'>
-          <input onChange={readFile} type='file' />
+          <input onChange={readFile} type='file' accept=".json" />
           <SourceDataTable jsonData={jsonData} setJsonData={setJsonData} />
           <ResultTable jsonData={jsonData} />
         </Space>

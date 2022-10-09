@@ -330,11 +330,11 @@ const MOCK_DATA = [
       },
     ],
     expected: {
-      revenue: 0,
-      expenses: 0,
-      grossProfitMargin: 0,
-      netProfitMargin: 0,
-      workingCapitalRatio: 0,
+      revenue: '$32,431',
+      expenses: '$36,530',
+      grossProfitMargin: '0%',
+      netProfitMargin: '-13%',
+      workingCapitalRatio: '119%',
     },
   },
 ]

@@ -1,15 +1,15 @@
 export interface DatalistType {
-  object_category: string
-  connection_id: string
-  user: string
-  object_creation_date: string
+  object_category?: string
+  connection_id?: string
+  user?: string
+  object_creation_date?: string
   data: Array<SingleDataType>
-  currency: string
-  object_origin_type: string
-  object_origin_category: string
-  object_type: string
-  object_class: string
-  balance_date: string
+  currency?: string
+  object_origin_type?: string
+  object_origin_category?: string
+  object_type?: string
+  object_class?: string
+  balance_date?: string
 }
 
 export interface SingleDataType {
