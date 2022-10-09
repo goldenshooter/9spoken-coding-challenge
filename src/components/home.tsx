@@ -1,4 +1,4 @@
-import { Layout, Space } from 'antd'
+import { Card, Layout, Space } from 'antd'
 import React, { useState } from 'react'
 import SourceDataTable from './sourceDataTable'
 import ResultTable from './resultTable'
@@ -26,12 +26,11 @@ const Homepage: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Content
-        className='site-layout-background'
-        style={{ margin: '16px', padding: 24 }}
-      >
+      <Content style={{ margin: '16px', padding: 24 }}>
         <Space direction='vertical' size='middle'>
-          <input onChange={readFile} type='file' accept=".json" />
+          <Card title='Choose a json file'>
+            <input onChange={readFile} type='file' accept='.json' />
+          </Card>
           <SourceDataTable jsonData={jsonData} setJsonData={setJsonData} />
           <ResultTable jsonData={jsonData} />
         </Space>

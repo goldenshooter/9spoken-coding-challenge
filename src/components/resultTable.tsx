@@ -1,4 +1,4 @@
-import { Descriptions } from 'antd'
+import { Card, Descriptions } from 'antd'
 import React from 'react'
 import { getResultFromSourceData } from './helperFunctions'
 import { DatalistType } from './types'
@@ -19,19 +19,25 @@ function ResultTable({ jsonData }: ResultTableProps) {
   } = getResultFromSourceData(dataList)
 
   return (
-    <Descriptions title='Result' bordered>
-      <Descriptions.Item label='Revenue'>{formattedRevenue}</Descriptions.Item>
-      <Descriptions.Item label='Expenses'>{formattedExpenses}</Descriptions.Item>
-      <Descriptions.Item label='Gross Profit Margin'>
-        {grossProfitMargin}
-      </Descriptions.Item>
-      <Descriptions.Item label='Net Profit Margin'>
-        {netProfitMargin}
-      </Descriptions.Item>
-      <Descriptions.Item label='Working Capital Ratio'>
-        {workingCapitalRatio}
-      </Descriptions.Item>
-    </Descriptions>
+    <Card title='Result'>
+      <Descriptions bordered>
+        <Descriptions.Item label='Revenue'>
+          {formattedRevenue}
+        </Descriptions.Item>
+        <Descriptions.Item label='Expenses'>
+          {formattedExpenses}
+        </Descriptions.Item>
+        <Descriptions.Item label='Gross Profit Margin'>
+          {grossProfitMargin}
+        </Descriptions.Item>
+        <Descriptions.Item label='Net Profit Margin'>
+          {netProfitMargin}
+        </Descriptions.Item>
+        <Descriptions.Item label='Working Capital Ratio'>
+          {workingCapitalRatio}
+        </Descriptions.Item>
+      </Descriptions>
+    </Card>
   )
 }
 

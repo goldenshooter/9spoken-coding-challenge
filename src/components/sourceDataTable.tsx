@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Card, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import React from 'react'
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
@@ -77,27 +77,18 @@ function SourceDataTable({ jsonData, setJsonData }: SourceDataTableProps) {
     {
       title: 'Total value',
       dataIndex: 'total_value',
-      // display this value with formatter
-      // render: (_, record) => (
-      //   <Space size="large">
-      //     <EditTwoTone onClick={() => editOnClick(record)} />
-      //     <DeleteTwoTone
-      //       twoToneColor="red"
-      //       onClick={() => deleteOnClick(record)}
-      //     />
-      //   </Space>
-      // ),
     },
   ]
 
   return (
-    <Table
-      columns={columns}
-      dataSource={dataForDiaplay}
-      data-testid='customer-table-table'
-      rowKey={(record) => record.account_identifier}
-      title={() => 'External Data'}
-    />
+    <Card title='External Data'>
+      <Table
+        columns={columns}
+        dataSource={dataForDiaplay}
+        data-testid='customer-table-table'
+        rowKey={(record) => record.account_identifier}
+      />
+    </Card>
   )
 }
 
