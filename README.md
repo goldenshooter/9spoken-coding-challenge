@@ -1,4 +1,10 @@
-# 9Spokes Coding Challenge
+# 9Spokes Coding Challenge from Steven (Chao Zhang)
+
+## How to run locally
+
+Download this repo, `npm install` then `npm start`.
+
+Then you should be able to see a UI with which you can upload a json file, then result will be displayed.
 
 ## Overview
 

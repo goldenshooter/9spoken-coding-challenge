@@ -91,6 +91,7 @@ export function getResultFromSourceData(dataList: Array<SingleDataType>): {
     style: 'percent',
     maximumFractionDigits: 0,
   }).format(assets / liabilities)
+
   return {
     formattedRevenue,
     formattedExpenses,
